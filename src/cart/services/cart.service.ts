@@ -52,13 +52,6 @@ export class CartService {
     return await this.cartsRepository.save(updatedCart);
   }
 
-  async checkout(cartId: string): Promise<UpdateResult> {
-    return await this.cartsRepository.update(
-      { id: cartId },
-      { status: CartStatusEnum.ORDERED },
-    );
-  }
-
   async removeByUserId(userId): Promise<void> {
     await this.cartsRepository.delete({ user_id: userId });
   }

@@ -105,18 +105,25 @@ export class CartController {
 
     const { id: cartId } = cart;
     const total = calculateCartTotal(cart);
-    const order = await this.orderService.create({
+
+    const result = await this.orderService.create({
       ...body, // TODO: validate and pick only necessary data
       user_id: userId,
       cart_id: cartId,
       total,
     });
-    await this.cartService.checkout(cart.id);
+
+    if (result instanceof Error) {
+      return {
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        message: result.message,
+      };
+    }
 
     return {
       statusCode: HttpStatus.OK,
       message: 'OK',
-      data: { order },
+      data: { order: result },
     };
   }
 }
