@@ -1,0 +1,12 @@
+INSERT INTO products (id, description, price, title)
+VALUES
+('92a667bf-5d24-4d52-a34d-c220edbde01d', 'God of War (2018) is a third person action adventure video game developed Santa Monica Studio and published Sony Interactive Entertainment.', 19.99, 'God of War (2018)'),
+('01972f89-a5fe-4229-a5d2-38ccbbf7141f', 'The Elder Scrolls V Skyrim Special Edition is a remastered version of the award winning RPG set in the epic fantasy world of Tamriel. With improved graphics new features and all of the original content this is the definitive edition of one of the greatest RPGs ever made.', 39.99, 'The Elder Scrolls V: Skyrim Special Edition'),
+('66a4291d-9694-4d0c-81db-98609cf4d7e2', 'Red Dead Redemption 2 is an open world western themed action adventure video game developed and published Rockstar Games.', 59.99, 'Red Dead Redemption 2'),
+('5e3ee9d2-1daa-4882-95fb-12004023bf31', 'Minecraft is a sandbox video game developed by Mojang Studios. The game was created by Markus Persson in the Java programming language.', 19.99, 'Minecraft'),
+('4603f470-4cd7-4c59-8453-0ce13f0a2b6f', 'The Witcher 3: Wild Hunt is a story-driven, next-generation open world role-playing game set in a visually stunning fantasy universe full of meaningful choices and impactful consequences.', 59.99, 'The Witcher 3: Wild Hunt'),
+('15c9bd73-1f0c-4000-b5c6-988c1dffbafb', 'Grand Theft Auto V is an open world, action-adventure video game developed by Rockstar North and published by Rockstar Games.', 29.99, 'Grand Theft Auto V'),
+('174f1585-5b45-4e6e-82fb-77aa06eefb96', 'Destiny 2 is an online multiplayer first person shooter video game developed by Bungie and published by Activision.', 59.99, 'Destiny 2'),
+('550cd614-3eff-4a41-9208-3d9607856887', 'Fallout 4 is an open world action role playing video game developed by Bethesda Game Studios and published by Bethesda Softworks. Set in the post apocalyptic wasteland of Boston Massachusetts the game follows the story of the Sole Survivor as they explore the ruined cityscape looking for their missing son.', 59.99, 'Fallout 4'),
+('522fde64-0273-4239-88ac-49371cf1075f', 'Call of Duty® Black Ops III Zombies Chronicles Edition includes the full base game plus the Zombies Chronicles content expansion.', 49.99, 'Call of Duty®: Black Ops III Zombies Chronicles Edition'),
+('4f9adf1a-3ef4-43f3-adb6-c469e9370065', 'The Witcher 3 is an action role playing game developed and published by CD Projekt RED.', 49.99, 'The Witcher 3');
