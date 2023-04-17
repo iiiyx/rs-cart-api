@@ -1,39 +1,45 @@
 import { Injectable } from '@nestjs/common';
 import { v4 } from 'uuid';
-
-import { Order } from '../models';
+import { Order } from '../entities/order.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class OrderService {
-  private orders: Record<string, Order> = {}
+  constructor(
+    @InjectRepository(Order)
+    private ordersRepository: Repository<Order>,
+  ) {}
 
-  findById(orderId: string): Order {
-    return this.orders[ orderId ];
+  async findById(orderId: string): Promise<Order> {
+    return await this.ordersRepository.findOne({
+      where: { id: orderId },
+      relations: ['cart'],
+    });
   }
 
-  create(data: any) {
-    const id = v4(v4())
-    const order = {
-      ...data,
-      id,
-      status: 'inProgress',
-    };
+  async create(data: Partial<Order>): Promise<Order> {
+    const id = v4(v4());
 
-    this.orders[ id ] = order;
-
-    return order;
+    return await this.ordersRepository.save<Order>(
+      this.ordersRepository.create({
+        ...data,
+        id,
+        status: 'inProgress',
+      }),
+    );
   }
 
-  update(orderId, data) {
-    const order = this.findById(orderId);
+  async update(orderId: string, data: Order) {
+    const order = await this.findById(orderId);
 
     if (!order) {
       throw new Error('Order does not exist.');
     }
 
-    this.orders[ orderId ] = {
+    return await this.ordersRepository.save({
       ...data,
       id: orderId,
-    }
+    });
   }
 }
